@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7efff">
+  <title>ByteBrew — Coffee, made cozy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- Announcement Bar -->
+  <div class="announcement">
+    A little treat for your day <span>✦</span> Free delivery on orders over ₱799
+  </div>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="ByteBrew home">
+      <img class="brand-logo" src="../logo.png" alt="ByteBrew">
+    </a>
+    
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#shop">Shop</a>
+      <a class="nav-link" href="#about">Our story</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+    
+    <div class="header-actions">
+      <button class="icon-button" id="searchToggle" aria-label="Search products" title="Search">⌕</button>
+      <button class="icon-button account-button" id="accountOpen" aria-label="Open account" title="Account"><span aria-hidden="true">♙</span><span id="accountUsername" hidden></span></button>
+      <button class="cart-button" id="cartOpen" aria-label="Open shopping cart">Bag <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> YOUR DAILY DOSE OF HAPPY</div>
+        <h1>Good coffee.<br><em>Soft moments.</em></h1>
+        <p>Little-batch coffee and feel-good favorites for slow mornings, busy afternoons, and everything in between.</p>
+        <div class="hero-buttons">
+          <a class="button button-dark" href="#shop">Shop the collection <span>↗</span></a>
+          <a class="text-link" href="#about">Get to know us <span>→</span></a>
+        </div>
+        <div class="hero-proof">
+          <div class="avatar-stack"><span>☻</span><span>☺</span><span>✿</span></div>
+          <div><strong>Loved by 2,000+ cozy people</strong><small>★★★★★ <span>4.9/5 customer rating</span></small></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="hero-sticker">BREW<br>YOUR<br>HAPPY <span>✦</span></div>
+        <div class="hero-photo">
+          <img src="../cafelatte.jpg" alt="Freshly brewed café latte">
+        </div>
+        <div class="floating-note">
+          <span>☕</span>
+          <div><strong>Made with care</strong><small>One cup at a time</small></div>
+        </div>
+        <div class="sparkle sparkle-a">✳</div>
+        <div class="sparkle sparkle-b">✦</div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" aria-label="Our promises">
+      <div>
+        <span class="benefit-icon">☕</span>
+        <div><strong>Small-batch goodness</strong><small>Freshness in every cup</small></div>
+      </div>
+      <div>
+        <span class="benefit-icon">♡</span>
+        <div><strong>Made for your moments</strong><small>Thoughtful, feel-good finds</small></div>
+      </div>
+      <div>
+        <span class="benefit-icon">♧</span>
+        <div><strong>Carefully packed</strong><small>Love delivered to your door</small></div>
+      </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="shop-section section-wrap" id="shop">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">THE GOOD STUFF</div>
+          <h2>Find your <em>new favorite.</em></h2>
+          <p>Everyday essentials, with a little extra joy.</p>
+        </div>
+        <a href="products.html" class="text-link desktop-link">View all products <span>→</span></a>
+      </div>
+      <div class="shop-tools">
+        <div class="category-tabs" id="categoryTabs" role="group" aria-label="Filter products">
+          <button class="category-tab selected" data-category="All">All goodies</button>
+          <button class="category-tab" data-category="Coffee">Coffee</button>
+          <button class="category-tab" data-category="Drinks">Drinks</button>
+          <button class="category-tab" data-category="Pastries">Pastries</button>
+        </div>
+        <label class="search-box" id="searchBox">
+          <span>⌕</span>
+          <input type="search" id="searchInput" placeholder="Search your happy..." aria-label="Search products">
+        </label>
+        <select id="sortSelect" aria-label="Sort products">
+          <option value="featured">Sort: Featured</option>
+          <option value="low">Price: Low to high</option>
+          <option value="high">Price: High to low</option>
+        </select>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No goodies found. Try another search. ♡</p>
+    </section>
+
+    <!-- Feature Banner Section -->
+    <section class="feature-banner section-wrap">
+      <div class="feature-image">
+        <img src="../croissant.jpg" alt="Freshly baked croissant">
+      </div>
+      <div class="feature-copy">
+        <div class="eyebrow">A PAUSE IN YOUR DAY</div>
+        <h2>Make room for<br><em>little rituals.</em></h2>
+        <p>From the first sip to the last page of your favorite book, we believe the smallest moments can make a day feel special.</p>
+        <a class="button button-dark" href="#about">Our little story <span>↗</span></a>
+        <span class="feature-doodle">✿</span>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter section-wrap">
+      <div class="newsletter-flower">✿</div>
+      <div>
+        <div class="eyebrow">LETTERS FROM THE CAFÉ</div>
+        <h2>A little joy in your inbox.</h2>
+        <p>New drops, cozy notes, and 10% off your first order.</p>
+      </div>
+      <form id="newsletterForm" class="newsletter-form">
+        <label class="sr-only" for="newsletterEmail">Email address</label>
+        <input type="email" id="newsletterEmail" placeholder="Your email address" required>
+        <button class="button button-dark" type="submit">Count me in ↗</button>
+      </form>
+      <p class="newsletter-message" id="newsletterMessage" aria-live="polite"></p>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section section-wrap" id="about">
+      <img class="about-logo" src="../logo.png" alt="">
+      <div>
+        <div class="eyebrow">HELLO, COFFEE FRIEND</div>
+        <h2>Not just coffee.<br><em>A feeling.</em></h2>
+      </div>
+      <p>ByteBrew began with one simple idea: everyday things deserve a little more heart. We bring together comforting coffee, thoughtful goods, and the kind of details that make an ordinary day feel lovely.</p>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer id="contact" class="site-footer">
+    <div class="footer-main">
+      <a class="brand footer-brand" href="#home">
+        <img class="brand-logo" src="../logo.png" alt="ByteBrew">
+      </a>
+      <p>For the slow sips and the big dreams.</p>
+      <div class="socials">
+        <a href="#contact" aria-label="Instagram">ig</a>
+        <a href="#contact" aria-label="Facebook">f</a>
+        <a href="#contact" aria-label="TikTok">♪</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div>
+        <strong>Explore</strong>
+        <a href="products.html">Shop all</a>
+        <a href="#about">Our story</a>
+        <a href="#shop">Best sellers</a>
+      </div>
+      <div>
+        <strong>Need a hand?</strong>
+        <a href="mailto:hello@bytebrew.example">Email us</a>
+        <a href="#contact">Shipping & returns</a>
+        <a href="#contact">FAQs</a>
+      </div>
+      <div>
+        <strong>Find us</strong>
+        <span>Monday–Saturday</span>
+        <span>9:00 AM – 6:00 PM</span>
+        <span>Made with love in the Philippines ♡</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ByteBrew. Made for cozy days.</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </footer>
+
+  <!-- Overlay & Cart Drawer -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-head">
+      <div>
+        <span class="eyebrow">YOUR LITTLE HAUL</span>
+        <h2>Shopping bag <span id="drawerCount">(0)</span></h2>
+      </div>
+      <button class="close-button" data-close aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty">
+      <span>♡</span>
+      <h3>Your bag feels lonely.</h3>
+      <p>Add something lovely to get started.</p>
+      <button class="button button-dark" id="continueShopping">Explore goodies</button>
+    </div>
+    <div class="cart-summary" id="cartSummary">
+      <div><span>Subtotal</span><strong id="cartSubtotal">₱0</strong></div>
+      <small>Shipping and taxes are calculated at checkout.</small>
+      <button class="button button-dark checkout-button" id="checkoutOpen">Continue to checkout <span>→</span></button>
+    </div>
+  </aside>
+
+  <!-- Account Modal -->
+  <dialog class="modal" id="accountModal">
+    <button class="close-button modal-close" data-dialog-close aria-label="Close account">×</button>
+    <img class="modal-logo" src="../logo.png" alt="">
+    <div class="eyebrow">WELCOME, FRIEND</div>
+    <h2 id="accountHeading">Come on in.</h2>
+    <p class="modal-intro" id="accountIntro">Sign in to keep your favorite goodies close.</p>
+    <form id="accountForm" class="stack-form">
+      <div class="signup-fields" id="signupFields" hidden>
+        <div class="form-two">
+          <label>First name<input name="firstName" required autocomplete="given-name" disabled></label>
+          <label>Last name<input name="lastName" required autocomplete="family-name" disabled></label>
+        </div>
+        <label>Date of birth<input name="dateOfBirth" type="date" required autocomplete="bday" disabled></label>
+        <label>Street address<input name="streetAddress" required autocomplete="address-line1" disabled></label>
+        <div class="form-two">
+          <label>City<input name="city" required autocomplete="address-level2" disabled></label>
+          <label>Province<input name="province" required autocomplete="address-level1" disabled></label>
+        </div>
+        <div class="form-two">
+          <label>Postal code<input name="postalCode" required autocomplete="postal-code" disabled></label>
+          <label>Country<input name="country" required autocomplete="country-name" disabled></label>
+        </div>
+        <label>Phone number<input name="phoneNumber" type="tel" required autocomplete="tel" placeholder="+63 9XX XXX XXXX" disabled></label>
+        <label>Preferred username<input name="username" required autocomplete="username" disabled></label>
+      </div>
+      <label>Email address<input id="accountEmail" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+      <label>Password<input id="accountPassword" name="password" type="password" minlength="8" required autocomplete="current-password" placeholder="At least 8 characters"></label>
+      <label id="confirmPasswordField" hidden>Confirm password<input id="confirmPassword" name="confirmPassword" type="password" minlength="8" autocomplete="new-password" disabled></label>
+      <button class="button button-dark" id="accountSubmit" type="submit">Sign in ↗</button>
+    </form>
+    <p class="form-note" id="accountSwitchPrompt">New to ByteBrew? <a class="text-link" id="accountSwitchLink" href="#signup">Sign up</a></p>
+    <p class="form-note" id="accountMessage" aria-live="polite">Demo account data is saved only in this browser. Do not use a real password.</p>
+    <section class="account-profile" id="accountProfile" hidden aria-labelledby="profileHeading">
+      <div class="eyebrow">YOUR BYTEBREW PROFILE</div>
+      <h2 id="profileHeading"></h2>
+      <dl class="profile-details" id="profileDetails"></dl>
+      <button class="button button-dark" id="accountSignOut" type="button">Sign out</button>
+    </section>
+  </dialog>
+
+  <!-- Checkout Modal -->
+  <dialog class="modal checkout-modal" id="checkoutModal">
+    <button class="close-button modal-close" data-dialog-close aria-label="Close checkout">×</button>
+    <div class="eyebrow">ALMOST YOURS</div>
+    <h2>Let's get it <em>to you.</em></h2>
+    <p class="modal-intro">Fill in your delivery details to place a demo order.</p>
+    <form id="checkoutForm" class="stack-form">
+      <div class="form-two">
+        <label>First name<input name="firstName" required autocomplete="given-name"></label>
+        <label>Last name<input name="lastName" required autocomplete="family-name"></label>
+      </div>
+      <label>Email address<input type="email" name="email" required autocomplete="email" placeholder="you@example.com"></label>
+      <label>Delivery address<textarea name="address" required rows="2" placeholder="House no., street, barangay, city"></textarea></label>
+      <div class="form-two">
+        <label>Payment method
+          <select name="payment" required>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <option value="GCash">GCash (demo)</option>
+            <option value="Bank Transfer">Bank transfer (demo)</option>
+          </select>
+        </label>
+        <label>Phone number<input name="phone" required inputmode="tel" placeholder="09XX XXX XXXX"></label>
+      </div>
+      <div class="checkout-total"><span>Order total</span><strong id="checkoutTotal">₱0</strong></div>
+      <button class="button button-dark" type="submit">Place demo order <span>♡</span></button>
+      <p class="form-note">This is a front-end demo. No real payment will be processed.</p>
+    </form>
+  </dialog>
+
+  <!-- Success Modal -->
+  <dialog class="modal success-modal" id="successModal">
+    <div class="success-icon">✓</div>
+    <div class="eyebrow">ORDER RECEIVED</div>
+    <h2>Thanks for the love!</h2>
+    <p id="successMessage">Your demo order has been placed.</p>
+    <button class="button button-dark" id="successClose">Back to browsing ↗</button>
+  </dialog>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
