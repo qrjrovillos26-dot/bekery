@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7efff">
+  <title>Shop All Products — ByteBrew</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">
+    A little treat for your day <span>✦</span> Free delivery on orders over ₱799
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html#home" aria-label="ByteBrew home">
+      <img class="brand-logo" src="../logo.png" alt="ByteBrew">
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="index.html#home">Home</a>
+      <a class="nav-link active" href="products.html">Shop</a>
+      <a class="nav-link" href="index.html#about">Our story</a>
+      <a class="nav-link" href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="searchToggle" aria-label="Focus product search" title="Search">⌕</button>
+      <button class="cart-button" id="cartOpen" aria-label="Open shopping cart">Bag <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="catalog-hero">
+      <div class="eyebrow"><span></span> THE BYTEBREW COLLECTION</div>
+      <h1>All the good <em>stuff.</em></h1>
+      <p>Take your pick of cozy coffee, refreshing drinks, and freshly baked treats.</p>
+    </section>
+
+    <section class="shop-section section-wrap catalog-section" id="shop">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">MADE FOR YOUR MOMENTS</div>
+          <h2>Find your <em>new favorite.</em></h2>
+          <p>Browse every feel-good favorite in one place.</p>
+        </div>
+      </div>
+      <div class="shop-tools">
+        <div class="category-tabs" id="categoryTabs" role="group" aria-label="Filter products">
+          <button class="category-tab selected" data-category="All">All goodies</button>
+          <button class="category-tab" data-category="Coffee">Coffee</button>
+          <button class="category-tab" data-category="Drinks">Drinks</button>
+          <button class="category-tab" data-category="Pastries">Pastries</button>
+        </div>
+        <label class="search-box" id="searchBox">
+          <span>⌕</span>
+          <input type="search" id="searchInput" placeholder="Search your happy..." aria-label="Search products">
+        </label>
+        <select id="sortSelect" aria-label="Sort products">
+          <option value="featured">Sort: Featured</option>
+          <option value="low">Price: Low to high</option>
+          <option value="high">Price: High to low</option>
+        </select>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No goodies found. Try another search. ♡</p>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="footer-main">
+      <a class="brand footer-brand" href="index.html#home">
+        <img class="brand-logo" src="../logo.png" alt="ByteBrew">
+      </a>
+      <p>For the slow sips and the big dreams.</p>
+      <div class="socials">
+        <a href="index.html#contact" aria-label="Instagram">ig</a>
+        <a href="index.html#contact" aria-label="Facebook">f</a>
+        <a href="index.html#contact" aria-label="TikTok">♪</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div>
+        <strong>Explore</strong>
+        <a href="products.html">Shop all</a>
+        <a href="index.html#about">Our story</a>
+        <a href="products.html">All favorites</a>
+      </div>
+      <div>
+        <strong>Need a hand?</strong>
+        <a href="mailto:hello@bytebrew.example">Email us</a>
+        <a href="index.html#contact">Shipping & returns</a>
+        <a href="index.html#contact">FAQs</a>
+      </div>
+      <div>
+        <strong>Find us</strong>
+        <span>Monday–Saturday</span>
+        <span>9:00 AM – 6:00 PM</span>
+        <span>Made with love in the Philippines ♡</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ByteBrew. Made for cozy days.</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-head">
+      <div>
+        <span class="eyebrow">YOUR LITTLE HAUL</span>
+        <h2>Shopping bag <span id="drawerCount">(0)</span></h2>
+      </div>
+      <button class="close-button" data-close aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty">
+      <span>♡</span>
+      <h3>Your bag feels lonely.</h3>
+      <p>Add something lovely to get started.</p>
+      <button class="button button-dark" id="continueShopping">Explore goodies</button>
+    </div>
+    <div class="cart-summary" id="cartSummary">
+      <div><span>Subtotal</span><strong id="cartSubtotal">₱0</strong></div>
+      <small>Shipping and taxes are calculated at checkout.</small>
+      <button class="button button-dark checkout-button" id="checkoutOpen">Continue to checkout <span>→</span></button>
+    </div>
+  </aside>
+
+  <dialog class="modal checkout-modal" id="checkoutModal">
+    <button class="close-button modal-close" data-dialog-close aria-label="Close checkout">×</button>
+    <div class="eyebrow">ALMOST YOURS</div>
+    <h2>Let's get it <em>to you.</em></h2>
+    <p class="modal-intro">Fill in your delivery details to place a demo order.</p>
+    <form id="checkoutForm" class="stack-form">
+      <div class="form-two">
+        <label>First name<input name="firstName" required autocomplete="given-name"></label>
+        <label>Last name<input name="lastName" required autocomplete="family-name"></label>
+      </div>
+      <label>Email address<input type="email" name="email" required autocomplete="email" placeholder="you@example.com"></label>
+      <label>Delivery address<textarea name="address" required rows="2" placeholder="House no., street, barangay, city"></textarea></label>
+      <div class="form-two">
+        <label>Payment method
+          <select name="payment" required>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <option value="GCash">GCash (demo)</option>
+            <option value="Bank Transfer">Bank transfer (demo)</option>
+          </select>
+        </label>
+        <label>Phone number<input name="phone" required inputmode="tel" placeholder="09XX XXX XXXX"></label>
+      </div>
+      <div class="checkout-total"><span>Order total</span><strong id="checkoutTotal">₱0</strong></div>
+      <button class="button button-dark" type="submit">Place demo order <span>♡</span></button>
+      <p class="form-note">This is a front-end demo. No real payment will be processed.</p>
+    </form>
+  </dialog>
+
+  <dialog class="modal success-modal" id="successModal">
+    <div class="success-icon">✓</div>
+    <div class="eyebrow">ORDER RECEIVED</div>
+    <h2>Thanks for the love!</h2>
+    <p id="successMessage">Your demo order has been placed.</p>
+    <button class="button button-dark" id="successClose">Back to browsing ↗</button>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
